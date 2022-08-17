@@ -1,6 +1,7 @@
 from django.shortcuts import render
+from django.views import View
 
-def formDummyView(request):
-        return render(request,
-                      template_name='formdummy/form.html',
-                      context={'Text':'Hello all'},)
+class formDummyView(View):
+    def get(self, request,*args, **kwargs):
+        return render(request,'formdummy/form.html',{'Text':'Hello all',})
+
