@@ -1,4 +1,4 @@
-from django.http import HttpResponse,HttpResponseNotFound
+from django.http import HttpResponse, HttpResponseNotFound, Http404
 from django.template import loader
 from django.shortcuts import render
 
@@ -21,11 +21,20 @@ def ViewMySite(request):
     except:
         return HttpResponseNotFound('No page found')
 
-def sport_view(request):
-    return HttpResponse(articles['sports'])
+def news_view(request,topic):
+    try:
+      return HttpResponse(articles[topic])
+    except:
+       # return HttpResponseNotFound('Page is not found')
+       raise Http404('404 Generic ERROR')  #404.html
 
-def finance_view(request):
-    return HttpResponse(articles['finance'])
+# https://docs.djangoproject.com/en/3.2/topics/http/urls/
 
-def politics_view(request):
-    return HttpResponse(articles['politics'])
+# def sport_view(request,topic):
+#     return HttpResponse(articles[topic])
+
+# def finance_view(request,topic):
+#     return HttpResponse(articles[topic])
+#
+# def politics_view(request,topic):
+#     return HttpResponse(articles[topic])
