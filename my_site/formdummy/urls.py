@@ -5,5 +5,6 @@ from . import views
 # app_name = 'formdummy'
 
 urlpatterns = [
-    path('formDummy/', views.formDummyView.as_view(),name='formDummy'),
+    path('form/', views.formDummyView.as_view(),name='form'),
+    path('formDummy/', views.formDummy.as_view(),name='formDummy'),
 ]

@@ -4,4 +4,5 @@ from .import views
 #domain.com/first_app/simple_view
 urlpatterns = [
     path('simple_view', views.ViewMySite,name='MySiteView'),
+    path('sport_view', views.SportView,name='SportView'),
 ]
