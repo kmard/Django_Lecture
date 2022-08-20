@@ -1,5 +1,6 @@
 from django.http import HttpResponse, HttpResponseNotFound, Http404, HttpResponseRedirect
 from django.template import loader
+from django.urls import reverse
 from django.shortcuts import render
 
 articles = {
@@ -31,8 +32,11 @@ def news_view(request,topic):
 # https://docs.djangoproject.com/en/3.2/topics/http/urls/
 
 def num_page_view(request,num_page):
-    topic_list = list(articles.keys())
-    topic = topic_list[int(num_page)]
+    try:
+        topic_list = list(articles.keys())
+        topic = topic_list[int(num_page)]
+    except:
+        raise Http404('404 Generic ERROR, page is not find')  # 404.html
 
-    return HttpResponseRedirect(topic)
+    return HttpResponseRedirect(reverse('topic-page',args=[topic]))
 
