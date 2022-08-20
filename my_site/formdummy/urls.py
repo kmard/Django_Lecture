@@ -7,4 +7,5 @@ from . import views
 urlpatterns = [
     path('form/', views.formDummyView.as_view(),name='form'),
     path('formDummy/', views.formDummy.as_view(),name='formDummy'),
+    path('formScheme/', views.SchemaJsonView.as_view(),name='formScheme'),
 ]

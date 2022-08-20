@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tag form</title>
+    <style>
+     form .div:{
+         margin: 10px 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{nameForm}}</h1>
+      <form method="post" enctype="multipart/form-data" action="/form/formDummy/">
+          {% csrf_token %}
+          {{form}}
+<!--          <div class="div">-->
+<!--              <p>-->
+<!--                 <label for="{{text}}">Feedback text: </label>-->
+<!--              </p>-->
+<!--              <textarea id="{{text}}" name="text" type="text" rows="4" cols="50" placeholder="Feedbek" required minlength="10" maxlength="200">-->
+<!--              </textarea>-->
+<!--           </div>-->
+<!--          <p></p>-->
+<!--           <div class="div">-->
+<!--               <label for="feedback-grade">Stars</label>-->
+<!--               <input id="feedback-grade" type="number" name="grade" required>-->
+<!--           </div>-->
+<!--           <p></p>-->
+<!--           <div class="div">-->
+<!--               <label for="feedback-image">Photo</label>-->
+<!--               <input id="feedback-image" type="file" name="image">-->
+<!--           </div>-->
+<!--           <p></p>-->
+           <div class="div">
+               <input id="feedback-summit" type="submit" name="but">
+           </div>
+
+      </form>
+</body>
+</html>
