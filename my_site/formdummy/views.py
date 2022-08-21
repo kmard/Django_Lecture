@@ -1,6 +1,9 @@
 
 from django.shortcuts import render
+from django.utils.decorators import method_decorator
 from django.views import View
+from django.views.decorators.csrf import csrf_exempt
+
 from .forms import DummyForm
 import json
 from django.http import JsonResponse
@@ -40,6 +43,7 @@ class formDummy(View):
           return render(request, 'formdummy/Error.html',{'error':form.errors['text'][0]})
 
 #pip install jsonschema
+# @method_decorator(csrf_exempt,name='dispatch')
 class SchemaJsonView(View):
 
    #Imitation API
@@ -54,12 +58,17 @@ class SchemaJsonView(View):
         except ValidationError as exc:
             return  JsonResponse({'errors':exc.message}, status = 400)
 
-        # form = DummyForm(request.POST)
-        # if form.is_valid():
-        #     context = form.cleaned_data
-        #     return render(request,'formdummy/formScheme.html',
-        #                   {'nameForm':'form Scheme reply',
-        #                    'context':context
-        #                    })
-        # else:
-        #   return render(request, 'formdummy/Error.html',{'error':form.errors['text'][0]})
+@method_decorator(csrf_exempt,name='dispatch')
+class MarshView(View):
+
+   #Imitation API
+
+    def post(self,request,*args, **kwargs):
+        try:
+            document = json.loads(request.body)
+            validate(document,REVIEW_SCHEMA)
+            return JsonResponse(document,status = 201)
+        except json.JSONDecodeError:
+            return  JsonResponse({'errors':'Invalid JSON'}, status = 400)
+        except ValidationError as exc:
+            return  JsonResponse({'errors':exc.message}, status = 400)

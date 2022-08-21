@@ -40,3 +40,5 @@ def num_page_view(request,num_page):
 
     return HttpResponseRedirect(reverse('topic-page',args=[topic]))
 
+def simple_view(request):
+    return render(request,'first_app/example.html',{})
