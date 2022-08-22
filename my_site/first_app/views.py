@@ -23,11 +23,17 @@ def ViewMySite(request):
         return HttpResponseNotFound('No page found')
 
 def news_view(request,topic):
+
+    if topic == 'simple_view':
+        return HttpResponseRedirect(reverse('simple_view', args=[]))
+
+
     try:
       return HttpResponse(articles[topic])
     except:
        # return HttpResponseNotFound('Page is not found')
        raise Http404('404 Generic ERROR, page is not find')  #404.html
+
 
 # https://docs.djangoproject.com/en/3.2/topics/http/urls/
 

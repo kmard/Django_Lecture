@@ -25,6 +25,9 @@ urlpatterns = [
     path('my_app/', include('my_app.urls')),
     #formdummy
     path('form/',include('formdummy.urls')),
+
     #MySiteView
     path('first_app/',include('first_app.urls')),
+    #my_templates
+    path('my_templates/',include('my_templates.urls')),
 ]

@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'formdummy',
     'first_app',
+    'my_templates',
 ]
 
 MIDDLEWARE = [
@@ -120,3 +121,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# ACCOUNT_SIGNUP_PASSWORD_VERIFICATION = False
