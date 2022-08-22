@@ -10,6 +10,7 @@ def variable_view(request):
     some_list = [1,2,3]
     some_dict = {'inside_key':'inside_value'}
     return render(request, "my_templates/variable.html",{'name':'variable.html',
+                                                         'name1': 'variable',
                                                          'some_list': some_list,
                                                          'some_dict':some_dict,
                                                          })
