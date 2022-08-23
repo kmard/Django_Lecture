@@ -133,4 +133,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# ACCOUNT_SIGNUP_PASSWORD_VERIFICATION = False
+LOGIN_URL = '/login/'

@@ -10,8 +10,9 @@ from django.http import JsonResponse
 from jsonschema import validate
 from jsonschema.exceptions import ValidationError
 from .schemas import REVIEW_SCHEMA
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-class formDummyView(View):
+class formDummyView(LoginRequiredMixin,View):
     def get(self, request,*args, **kwargs):
         return render(request,'formdummy/form.html',{'nameForm':'Feedback form',})
 
@@ -24,7 +25,7 @@ class formDummyView(View):
         #rederict
         return render(request,'formdummy/form.html',{'nameForm':'Feedback form',})
 
-class formDummy(View):
+class formDummy(LoginRequiredMixin,View):
     def get(self, request,*args, **kwargs):
         form = DummyForm
         return render(request,'formdummy/formDummy.html',
