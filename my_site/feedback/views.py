@@ -28,6 +28,7 @@ class formDummyView(LoginRequiredMixin,View):
         return render(request,'feedback/form.html',{'nameForm':'Feedback form',})
 
 class FeedbackCreateView(LoginRequiredMixin,CreateView):
+   #'https://docs.djangoproject.com/en/3.0/ref/class-based-views/generic-editing/'
    model = Feedback
    fields = ['text','grade','subject']
    success_url = '/feedback/add'
