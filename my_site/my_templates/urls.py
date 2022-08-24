@@ -1,7 +1,10 @@
 from django.urls import path
 from .import views
 
-#domain.com/first_app/simple_view
+#register the app namespace
+#URL NAMES
+app_name = 'my_templates'
+
 urlpatterns = [
      path('', views.example_view, name='example1'),
      path('variable', views.variable_view, name='variable'),
