@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Boolean</title>
+</head>
+<body>
+<!--  https://docs.djangoproject.com/en/3.0/ref/templates/builtins/#if-->
+
+{% if user_logged_in %}
+   <h1>Welcome back you are logged in</h1>
+{% else %}
+   <h1>You need logg in </h1>
+{% endif %}
+<hr>
+<ul>
+{% for num in some_list %}
+  {% if num == 2 %}
+     <li>Two</li>
+  {% else %}
+    <li>{{ num }}</li>
+  {% endif %}
+{% endfor %}
+</ul>
+
+
+
+
+</body>
+</html>

@@ -18,8 +18,18 @@ def variable_view(request):
 def loops_view(request):
     some_list = [1, 2, 3]
     some_dict = {'inside_key': 'inside_value'}
-    return render(request, "my_templates/loops.html",{'name':'variable.html',
+    return render(request, "my_templates/loops.html",{'name':'loops.html',
                                                          'name1': 'variable',
                                                          'some_list': some_list,
                                                          'some_dict':some_dict,
+                                                         })
+
+def Bollean_view(request):
+    some_list = [1, 2, 3]
+    some_dict = {'inside_key': 'inside_value'}
+    return render(request, "my_templates/boolean.html",{'name':'bollean.html',
+                                                         'name1': 'variable',
+                                                         'some_list': some_list,
+                                                         'some_dict':some_dict,
+                                                          'user_logged_in':True,
                                                          })
