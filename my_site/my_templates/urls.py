@@ -5,4 +5,5 @@ from .import views
 urlpatterns = [
      path('', views.example_view, name='example1'),
      path('variable', views.variable_view, name='variable'),
+     path('loops', views.loops_view, name='loops'),
 ]

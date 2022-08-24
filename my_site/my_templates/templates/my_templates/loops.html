@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loops</title>
+</head>
+<body>
+<!--  https://docs.djangoproject.com/en/3.0/ref/templates/builtins/#for-->
+ <h1>Loops</h1>
+<ul>
+  {% for obj_list in some_list %}
+    <li>{{obj_list}}</li>
+  {% endfor %}
+ </ul>
+<hr>
+<ul>
+  {% for key, value in some_dict.items %}
+    <li>  {{ key }}: {{ value }}</li>
+  {% endfor %}
+ </ul>
+
+
+</body>
+</html>
