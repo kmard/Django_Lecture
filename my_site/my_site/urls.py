@@ -25,7 +25,7 @@ urlpatterns = [
     # my_app
     path('my_app/', include('my_app.urls')),
     #formdummy
-    path('form/',include('feedback.urls')),
+    path('feedback/',include('feedback.urls')),
 
     #MySiteView
     path('first_app/',include('first_app.urls')),

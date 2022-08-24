@@ -11,10 +11,12 @@ from jsonschema import validate
 from jsonschema.exceptions import ValidationError
 from .schemas import REVIEW_SCHEMA
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic.edit import CreateView
+from .models import Feedback
 
 class formDummyView(LoginRequiredMixin,View):
     def get(self, request,*args, **kwargs):
-        return render(request,'formdummy/form.html',{'nameForm':'Feedback form',})
+        return render(request,'feedback/form.html',{'nameForm':'Feedback form',})
 
 # 'https://docs.djangoproject.com/en/3.0/ref/class-based-views/base/'
     def post(self,request,*args, **kwargs):
@@ -23,25 +25,18 @@ class formDummyView(LoginRequiredMixin,View):
         image = request.FILES.get('image')
         content = image.read()
         #rederict
-        return render(request,'formdummy/form.html',{'nameForm':'Feedback form',})
+        return render(request,'feedback/form.html',{'nameForm':'Feedback form',})
 
-class formDummy(LoginRequiredMixin,View):
-    def get(self, request,*args, **kwargs):
-        form = DummyForm
-        return render(request,'formdummy/formDummy.html',
-                      {'nameForm':'Feedback form dummy',
-                       'form':form,
-                       })
-    def post(self,request,*args, **kwargs):
-        form = DummyForm(request.POST)
-        if form.is_valid():
-            context = form.cleaned_data
-            return render(request,'formdummy/formDummy.html',
-                          {'nameForm':'form Dummy reply',
-                           'context':context
-                           })
-        else:
-          return render(request, 'formdummy/Error.html',{'error':form.errors['text'][0]})
+class FeedbackCreateView(LoginRequiredMixin,CreateView):
+   model = Feedback
+   fields = ['text','grade','subject']
+   success_url = '/feedback/add'
+
+   def form_valid(self,form):
+       form.instance.author = self.request.user
+       return super().form_valid(form)
+
+
 
 #pip install jsonschema
 # @method_decorator(csrf_exempt,name='dispatch')
