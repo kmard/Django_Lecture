@@ -3,8 +3,7 @@ from django.shortcuts import render
 from django.utils.decorators import method_decorator
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt
-
-from .forms import DummyForm
+from django.views.generic import ListView
 import json
 from django.http import JsonResponse
 from jsonschema import validate
@@ -69,3 +68,15 @@ class MarshView(View):
             return  JsonResponse({'errors':'Invalid JSON'}, status = 400)
         except ValidationError as exc:
             return  JsonResponse({'errors':exc.message}, status = 400)
+
+class FeedbackListView(LoginRequiredMixin,ListView):
+    #'https://docs.djangoproject.com/en/3.0/ref/class-based-views/generic-display/#listview'
+    model = Feedback
+    paginate_by = 20
+
+    def get_queryset(self):
+        if self.request.user.is_staff:
+            return Feedback.objects.all()
+        else:
+            return Feedback.objects.filter(author = self.request.user)
+

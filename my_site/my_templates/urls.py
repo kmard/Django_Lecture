@@ -10,4 +10,6 @@ urlpatterns = [
      path('variable', views.variable_view, name='variable'),
      path('loops', views.loops_view, name='loops'),
      path('boolean', views.Bollean_view, name='boolean'),
+     path('exBase/', views.exBase_view, name='exBase'),
+
 ]

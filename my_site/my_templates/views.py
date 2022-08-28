@@ -33,3 +33,7 @@ def Bollean_view(request):
                                                          'some_dict':some_dict,
                                                           'user_logged_in':True,
                                                          })
+
+def exBase_view(request):
+
+    return render(request, "my_templates/exBase.html",{})

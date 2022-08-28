@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All feedback1</title>
+</head>
+<body>
+    <h1>Fedbacks</h1>
+    {% for feedback in object_list %}
+         <li> {{feedback.subject}} - {{feedback.text}}</li>
+    {% empty %}
+         <li>There is not feedback</li>
+    {% endfor %}
+
+
+
+</body>
+</html>
