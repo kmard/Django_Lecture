@@ -37,3 +37,7 @@ def Bollean_view(request):
 def exBase_view(request):
 
     return render(request, "my_templates/exBase.html",{})
+
+def static_view(request):
+
+    return render(request, "my_templates/static.html",{})

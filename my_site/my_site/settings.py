@@ -130,7 +130,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-
+#my_app/static/my_app/some.jpg
 STATIC_URL = '/static/'
 
 LOGIN_URL = '/login/'

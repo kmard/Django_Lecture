@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<!--    <title>Title</title>-->
+</head>
+<body>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block basecontent %}
+   <h1>This is inside the block of exBase</h1>
+<img src="{% static 'my_templates/1.jpg' %}" alt="image">
+{% endblock %}
+</body>
+</html>
