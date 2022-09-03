@@ -12,6 +12,4 @@ urlpatterns = [
      path('boolean', views.Bollean_view, name='boolean'),
      path('exBase/', views.exBase_view, name='exBase'),
      path('static/', views.static_view, name='static'),
-
-
 ]

@@ -33,6 +33,8 @@ urlpatterns = [
     path('my_templates/',include('my_templates.urls')),
     #login
     path('login/', auth_views.LoginView.as_view(),name='login'),
+    #office
+    path('office/',include('office.urls')),
 ]
 
 handler404 = 'my_site.views.my_custom_page_not_found_view'
