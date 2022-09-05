@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'first_app',
     'my_templates',
     'office',
+    'cars',
 ]
 
 MIDDLEWARE = [

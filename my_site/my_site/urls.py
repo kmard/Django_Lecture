@@ -26,7 +26,6 @@ urlpatterns = [
     path('my_app/', include('my_app.urls')),
     #formdummy
     path('feedback/',include('feedback.urls')),
-
     #MySiteView
     path('first_app/',include('first_app.urls')),
     #my_templates
@@ -35,6 +34,8 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(),name='login'),
     #office
     path('office/',include('office.urls')),
+    #car
+    path('cars/',include('cars.urls')),
 ]
 
 handler404 = 'my_site.views.my_custom_page_not_found_view'
