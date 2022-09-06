@@ -7,7 +7,17 @@
 <body>
 {% extends "base_car.html" %}
 {% block content %}
- <h1>Delete</h1>
+<div class="container">
+ <h3>Enter pk to delete car!</h3>
+ <form action="" method="post">
+      {% csrf_token %}
+     <div class="form-group">
+         <label for="pk">PK number</label>
+         <input class="form-control" type="text" name="pk" id="pk">
+     </div>
+     <input class="btn btn-primary" type="submit" value="Submit">
+ </form>
+</div>
 {% endblock content %}
 </body>
 </html>
