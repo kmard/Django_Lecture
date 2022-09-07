@@ -13,5 +13,5 @@ class Car(models.Model):
         verbose_name_plural = "Cars"
 
     def __str__(self):
-        return f'Car is {self.brand}/{self.year} pk {self.pk}'
+        return f'Car is {self.brand}/{self.year} pk is {self.pk}'
 

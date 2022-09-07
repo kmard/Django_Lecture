@@ -7,13 +7,14 @@
 <body>
 {% extends "base_car.html" %}
 {% block content %}
-  <h1>list</h1>
+
   <div class="container">
-      <ul>
+      <h1>list cars</h1>
+      <ol class="list-group list-group-numbered">
           {% for car in all_cars %}
-               <li>{{car}}</li>
+               <li class="list-group-item">{{car}}</li>
           {% endfor %}
-      </ul>
+      </ol>
   </div>
 {% endblock content %}
 </body>
