@@ -1,10 +1,10 @@
 from django.db import models
 
+
 # Create your models here.
 
 class Car(models.Model):
-
-    #pk
+    # pk
     brand = models.CharField(max_length=30)
     year = models.IntegerField()
 
@@ -14,4 +14,3 @@ class Car(models.Model):
 
     def __str__(self):
         return f'Car is {self.brand}/{self.year} pk is {self.pk}'
-

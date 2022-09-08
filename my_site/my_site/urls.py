@@ -15,27 +15,27 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from .import views
+from . import views
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #home
+    # home
     path('', views.home_view, name='home'),
     # my_app
     path('my_app/', include('my_app.urls')),
-    #formdummy
-    path('feedback/',include('feedback.urls')),
-    #MySiteView
-    path('first_app/',include('first_app.urls')),
-    #my_templates
-    path('my_templates/',include('my_templates.urls')),
-    #login
-    path('login/', auth_views.LoginView.as_view(),name='login'),
-    #office
-    path('office/',include('office.urls')),
-    #car
-    path('cars/',include('cars.urls')),
+    # formdummy
+    path('feedback/', include('feedback.urls')),
+    # MySiteView
+    path('first_app/', include('first_app.urls')),
+    # my_templates
+    path('my_templates/', include('my_templates.urls')),
+    # login
+    path('login/', auth_views.LoginView.as_view(), name='login'),
+    # office
+    path('office/', include('office.urls')),
+    # car
+    path('cars/', include('cars.urls')),
 ]
 
 handler404 = 'my_site.views.my_custom_page_not_found_view'
