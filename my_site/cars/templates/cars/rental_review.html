@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Rental review</title>
 </head>
+<!--https://docs.djangoproject.com/en/4.1/ref/forms/api/  as_p as_ul as_table-->
 <body>
   {% extends "base_car.html" %}
   {% block content %}
@@ -11,7 +12,14 @@
        <h3>Rental review</h3>
       <form action="" method="post" >
           {% csrf_token %}
-           {{form}}
+          <div>
+              <p>
+                 {{form.first_name.label_tag}} {{form.first_name}}
+              </p>
+          </div>
+          <div>
+           {{form.last_name.label_tag}} {{form.last_name}}
+          </div>
           <input class="btn btn-primary" type="submit" value="Submit">
       </form>
   </div>
