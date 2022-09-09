@@ -12,14 +12,14 @@
        <h3>Rental review</h3>
       <form action="" method="post" >
           {% csrf_token %}
-          <div>
-              <p>
-                 {{form.first_name.label_tag}} {{form.first_name}}
-              </p>
-          </div>
-          <div>
-           {{form.last_name.label_tag}} {{form.last_name}}
-          </div>
+
+          {% for field in form %}
+             <div class="mb-2">
+                 {{field.label_tag}}
+             </div>
+                 {{field}}
+          {% endfor %}
+
           <input class="btn btn-primary" type="submit" value="Submit">
       </form>
   </div>
