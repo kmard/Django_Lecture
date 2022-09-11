@@ -1,14 +1,16 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
     <title>Rental review</title>
 </head>
 <!--https://docs.djangoproject.com/en/4.1/ref/forms/api/  as_p as_ul as_table-->
 <body>
   {% extends "base_car.html" %}
   {% block content %}
-  <div class="container">
+  <div class="container myform">
        <h3>Rental review</h3>
       <form action="" method="post" >
           {% csrf_token %}
