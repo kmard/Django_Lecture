@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'my_templates',
     'office',
     'cars',
+    'classroom',
 ]
 
 MIDDLEWARE = [

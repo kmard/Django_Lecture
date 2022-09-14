@@ -36,6 +36,8 @@ urlpatterns = [
     path('office/', include('office.urls')),
     # car
     path('cars/', include('cars.urls')),
+    #
+    path('classroom/', include('classroom.urls')),
 ]
 
 handler404 = 'my_site.views.my_custom_page_not_found_view'
