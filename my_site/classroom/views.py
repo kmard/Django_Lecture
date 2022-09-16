@@ -39,6 +39,8 @@ class TeacherCreateView(CreateView):
 class TeacherListView(ListView):
     model = Teacher
     #model_list.html
+    queryset = Teacher.objects.order_by('first_name')
+
     context_object_name = 'teacher_list'
     paginate_by = 25  # if pagination is desired
 
