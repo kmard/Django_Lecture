@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teachers list</title>
+</head>
+<body>
+  <h4>List of techers</h4>
+    <ul>
+      {% for teacher in teacher_list %}
+          <li>{{ teacher.first_name }} - {{ teacher.last_name }} - {{teacher.subject}}</li>
+      {% empty %}
+          <li>No teachers yet.</li>
+      {% endfor %}
+    </ul>
+    <h4> <a href="{% url 'classroom:home' %}">Home</a></h4>
+</body>
+</html>

@@ -8,13 +8,16 @@
    <h3>Home page</h3>
     <ul>
         <li>
+            <a href="{% url 'classroom:list_teacher' %}">List of teacher </a>
+        </li>
+        <li>
+            <a href="{% url 'classroom:create_teacher' %}">Create new teacher </a>
+        </li>
+        <li>
             <a href="{% url 'classroom:thanks1' %}">THANKS</a>
         </li>
         <li>
             <a href="{% url 'classroom:contact' %}">Contact page </a>
-        </li>
-        <li>
-            <a href="{% url 'classroom:create_teacher' %}">Create new teacher </a>
         </li>
     </ul>
 </body>

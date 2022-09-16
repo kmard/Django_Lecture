@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView,FormView,CreateView
+from django.views.generic import TemplateView,FormView,CreateView,ListView
 from classroom.forms import ContactForm
 from django.urls import reverse,reverse_lazy
 
@@ -35,3 +35,13 @@ class TeacherCreateView(CreateView):
     #.save()
     fields = '__all__'
     success_url = '/classroom/thanks/'
+
+class TeacherListView(ListView):
+    model = Teacher
+    #model_list.html
+    context_object_name = 'teacher_list'
+    paginate_by = 25  # if pagination is desired
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
