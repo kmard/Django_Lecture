@@ -1,7 +1,9 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView,FormView
+from django.views.generic import TemplateView,FormView,CreateView
 from classroom.forms import ContactForm
 from django.urls import reverse,reverse_lazy
+
+from classroom.models import Teacher
 
 
 # Create your views here.
@@ -27,3 +29,9 @@ class ContactFormView(FormView):
         # {'name': 'Mike', 'message': '55'}
         return super().form_valid(form)
 
+class TeacherCreateView(CreateView):
+    model = Teacher
+    #model_form.html
+    #.save()
+    fields = '__all__'
+    success_url = '/classroom/thanks/'
