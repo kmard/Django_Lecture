@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView,FormView,CreateView,ListView
+from django.views.generic import TemplateView,FormView,CreateView,ListView,DetailView
 from classroom.forms import ContactForm
 from django.urls import reverse,reverse_lazy
 
@@ -43,6 +43,15 @@ class TeacherListView(ListView):
 
     context_object_name = 'teacher_list'
     paginate_by = 25  # if pagination is desired
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+
+class TeacherDetailView(DetailView):
+    #model_detail.html
+    model = Teacher
+    #PK --> {{teacher}}
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
