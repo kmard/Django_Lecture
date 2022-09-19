@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView,FormView,CreateView,ListView,DetailView
+from django.views.generic import TemplateView,FormView,CreateView,ListView,DetailView,UpdateView
 from classroom.forms import ContactForm
 from django.urls import reverse,reverse_lazy
 
@@ -56,3 +56,11 @@ class TeacherDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
+
+class TeacherUpdateView(UpdateView):
+    #Share model_form.html --- PK
+    model = Teacher
+    fields = ['first_name','last_name','subject']
+    # template_name_suffix = '_update_form'
+
+    success_url = reverse_lazy('classroom:list_teacher')

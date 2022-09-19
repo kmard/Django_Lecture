@@ -8,7 +8,14 @@
   <h4>List of techers</h4>
     <ul>
       {% for teacher in teacher_list %}
-         <li><a href='/classroom/teachers_detail/{{ teacher.id }}'>{{ teacher.first_name }} - {{ teacher.last_name }} - {{teacher.subject}}</a></li>
+         <li>
+             <a href='/classroom/teachers_detail/{{ teacher.id }}'>{{ teacher.first_name }} - {{ teacher.last_name }} - {{teacher.subject}}</a>
+             <ul>
+                 <li>
+                    <a href='/classroom/teacher_update/{{ teacher.id }}'>Update information</a>
+                 </li>
+             </ul>
+         </li>
       {% empty %}
           <li>No teachers yet.</li>
       {% endfor %}
